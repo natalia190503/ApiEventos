@@ -1,16 +1,12 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import text  # ✅ IMPORTANTE
+import pymysql
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/eventosdb'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+conn = pymysql.connect(
+    host='34.9.135.98',
+    user='natalia',
+    password='TuContraseña123',
+    database='eventosdb',
+    port=3306
+)
 
-try:
-    with app.app_context():
-        with db.engine.connect() as connection:
-            result = connection.execute(text("SELECT 1"))  # ✅ Usa text() aquí
-            print("✅ Conexión exitosa a la base de datos")
-except Exception as e:
-    print("❌ Error de conexión:", e)
+print("Conectado a MySQL correctamente!")
+conn.close()
