@@ -8,7 +8,8 @@ app = Flask(__name__)
 CORS(app)
 
 # Configuración de base de datos desde variable de entorno (para Render)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://natalia:123456@ec2-44-226-122-3.us-west-2.compute.amazonaws.com/eventos'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
