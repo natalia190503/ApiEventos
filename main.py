@@ -7,7 +7,8 @@ app = Flask(__name__)
 CORS(app)
 
 # Configuración de base de datos (modifica los valores según tu entorno)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/eventosdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://natalia:TuContraseña123@34.9.135.98:3306/eventosdb'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
