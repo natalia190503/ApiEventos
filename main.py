@@ -2,14 +2,11 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from models import db, Usuario, Evento, Lugar, Categoria, Inscripcion, Entrada
 from datetime import datetime
-import os
 
 app = Flask(__name__)
 CORS(app)
 
-# Configuración de base de datos desde variable de entorno (para Render)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://natalia:123456@ec2-44-226-122-3.us-west-2.compute.amazonaws.com/eventos'
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://uvp:AsDqWe1!@34.9.70.101/eventosdb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
